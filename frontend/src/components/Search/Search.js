@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import classes from './search.module.css';
+import { BiSearchAlt } from "react-icons/bi";
+
 
 Search.defaultProps = {
   searchRoute: '/search/',
   defaultRoute: '/',
-  placeholder: 'Search Food Mine!',
+  placeholder: 'Search your craving !',
 };
 
 export default function Search({
@@ -34,7 +36,7 @@ export default function Search({
         onKeyUp={e => e.key === 'Enter' && search()}
         value={term}
       />
-      <button onClick={search}>Search</button>
+      <button onClick={search}><BiSearchAlt size={30} /></button>
     </div>
   );
 }
