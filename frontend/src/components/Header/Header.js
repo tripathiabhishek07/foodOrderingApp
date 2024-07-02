@@ -1,40 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
-import classes from './header.module.css';
 import { useAuth } from '../../hooks/useAuth';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Importing icons for mobile menu
+import classes from './header.module.css';
+import DropdownMenu from '../DropDownMenu/DropdownMenu';
 
 export default function Header() {
   const { user, logout } = useAuth();
   const { cart } = useCart();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   return (
     <header className={classes.header}>
       <div className={classes.container}>
         <Link to="/" className={classes.logo}>
-          Ram Naresh Restaurant 
+          Food Mine!
         </Link>
-        <nav className={`${classes.nav} ${isMobileMenuOpen ? classes.open : ''}`}>
-          <ul className={classes.menu}>
+        <nav>
+          <ul>
             {user ? (
-              <li className={classes.menu_container}>
-                <Link to="/dashboard">{user.name}</Link>
-                <div className={classes.submenu}>
-                  <Link to="/profile">Profile</Link>
-                  <Link to="/orders">Orders</Link>
-                  <a onClick={logout}>Logout</a>
-                </div>
+              <li>
+                <DropdownMenu user={user} logout={logout} />
               </li>
             ) : (
-              <li><Link to="/login">Login</Link></li>
+              <Link to="/login">Login</Link>
             )}
-
             <li>
               <Link to="/cart">
                 Cart
@@ -45,9 +34,6 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div className={classes.mobile_menu_icon} onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </div>
       </div>
     </header>
   );
