@@ -1,110 +1,50 @@
-/* header.module.css */
+/* Example styles for the header module */
 
 .header {
-  background: white;
-  padding: 0;
-  border-bottom: 1px solid #e72929;
-}
-
-.header a {
-  color: #af1313;
-  text-decoration: none;
-}
-
-.header a:hover {
-  background: #e72929;
-  color: white;
-  cursor: pointer;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
 }
 
 .logo {
+  font-size: 1.5em;
   font-weight: bold;
-  padding: 1rem;
+  color: #333;
+  text-decoration: none;
 }
 
-.header ul {
+nav ul {
+  list-style: none;
   display: flex;
-  list-style-type: none;
+  gap: 20px;
   margin: 0;
-}
-
-.header ul a {
-  padding: 1rem;
-  display: inline-block;
-}
-
-.menu_container {
-  position: relative;
-}
-
-.menu {
-  position: absolute;
-  z-index: 1001;
-  background-color: whitesmoke;
-  display: none;
-}
-
-.menu_container:hover .menu {
-  display: block;
-}
-
-.menu a {
-  width: 100%;
-  min-width: 8rem;
+  padding: 0;
 }
 
 .cart_count {
-  background-color: #ff4d4d;
+  background-color: red;
   color: white;
-  padding: 0.1rem 0.45rem;
-  border-radius: 100rem;
-  font-size: 0.9rem;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 0.8em;
+  margin-left: 5px;
 }
 
-/* Mobile Styles */
-.mobile_menu_icon {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #af1313;
-}
-
+/* Media query for mobile screens */
 @media (max-width: 768px) {
-  .header ul {
-    display: none;
+  .container {
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 999;
+    align-items: flex-start;
   }
 
-  .header ul.open {
-    display: flex;
-  }
-
-  .header ul li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .header ul a {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .mobile_menu_icon {
-    display: block;
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
   }
 }

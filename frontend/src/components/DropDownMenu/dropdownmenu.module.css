@@ -1,0 +1,39 @@
+.menu_container {
+    position: relative;
+  }
+  
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  
+  /* Show menu on hover for non-mobile screens */
+  .menu_container:hover .menu {
+    display: block;
+  }
+  
+  .menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Media query for mobile screens */
+  @media (max-width: 768px) {
+    .menu {
+      display: block;
+      position: static;
+      box-shadow: none;
+    }
+  }
+  
