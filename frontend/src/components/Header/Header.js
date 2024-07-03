@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useCart } from '../../hooks/useCart';
-import { useAuth } from '../../hooks/useAuth';
-import classes from './header.module.css';
-import DropdownMenu from '../DropDownMenu/DropdownMenu';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
+import { useAuth } from "../../hooks/useAuth";
+import classes from "./header.module.css";
+import DropdownMenu from "../DropDownMenu/DropdownMenu";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -17,9 +17,7 @@ export default function Header() {
   return (
     <header className={classes.header}>
       <div className={classes.container}>
-        <Link to="/" className={classes.logo}>
-         Ram Naresh Restaurant
-        </Link>
+        
         <div className={classes.hamburger} onClick={toggleMenu}>
           {menuOpen ? (
             <span className={classes.close}>&#x2715;</span> // Close icon
@@ -27,7 +25,12 @@ export default function Header() {
             <span className={classes.burger}>&#9776;</span> // Hamburger icon
           )}
         </div>
-        <nav className={`${classes.nav} ${menuOpen ? classes.open : ''}`}>
+        <Link to="/" className={classes.logo}>
+          Ram Naresh Restaurant
+        </Link>
+        
+      </div>
+      <nav className={`${classes.nav} ${menuOpen ? classes.open : ""}`}>
           <ul>
             {user ? (
               <li>
@@ -46,7 +49,6 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-      </div>
     </header>
   );
 }
