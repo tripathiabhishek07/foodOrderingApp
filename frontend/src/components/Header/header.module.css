@@ -1,14 +1,16 @@
 /* Example styles for the header module */
 
 .header {
+  /* border: 2px solid grey; */
   background-color: #fff;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
+  border: 2px solid red;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between ;
   align-items: center;
 }
 
@@ -20,6 +22,7 @@
 }
 
 nav ul {
+  border: 2px solid grey;
   list-style: none;
   display: flex;
   gap: 20px;
@@ -36,15 +39,56 @@ nav ul {
   margin-left: 5px;
 }
 
+/* Styles for the hamburger menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger,
+.close {
+  font-size: 1.5em;
+}
+
 /* Media query for mobile screens */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    justify-content: center;
+    border: 2px solid green;
+    display: none;
+    width: 30%;
+  }
+
+  .nav.open {
+    display: block;
+   
+
   }
 
   nav ul {
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+  }
+
+  .menu_container {
+    
+    width: 100%;
+    text-align: right;
+  }
+
+  .menu {
+    
+    position: static;
+    box-shadow: none;
   }
 }

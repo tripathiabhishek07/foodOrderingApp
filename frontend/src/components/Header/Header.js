@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import { useAuth } from '../../hooks/useAuth';
@@ -8,18 +8,30 @@ import DropdownMenu from '../DropDownMenu/DropdownMenu';
 export default function Header() {
   const { user, logout } = useAuth();
   const { cart } = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <header className={classes.header}>
       <div className={classes.container}>
         <Link to="/" className={classes.logo}>
-          Ram Naresh Restaurant
+         Ram Naresh Restaurant
         </Link>
-        <nav>
+        <div className={classes.hamburger} onClick={toggleMenu}>
+          {menuOpen ? (
+            <span className={classes.close}>&#x2715;</span> // Close icon
+          ) : (
+            <span className={classes.burger}>&#9776;</span> // Hamburger icon
+          )}
+        </div>
+        <nav className={`${classes.nav} ${menuOpen ? classes.open : ''}`}>
           <ul>
             {user ? (
               <li>
-                <DropdownMenu user={user} logout={logout} />
+                <DropdownMenu user={user} logout={logout} isOpen={menuOpen} />
               </li>
             ) : (
               <Link to="/login">Login</Link>
