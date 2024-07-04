@@ -1,18 +1,30 @@
 .menu_container {
   position: relative;
+  /* border: 3px solid red; */
+  /* margin-top: 10px; */
+
+  
 }
 .menu {
+  /* border: 2px solid green; */
   display: none;
+  width: 100%;
   position: absolute;
   top: 100%;
+  
   right: 0;
   background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  z-index: 1002;
+  
+  
 }
 
 /* Show menu on hover */
-.menu_container:hover .menu {
+.menu_container:hover .menu,
+.menu_container:hover .menu,
+.menu:hover {
   display: block;
 }
 
@@ -30,12 +42,11 @@
 /* Media query for mobile screens */
 @media (max-width: 768px) {
   .menu {
-    
     display: none;
     position: static;
     box-shadow: none;
   }
-
+ 
   .menu_container.open .menu {
     display: block;
   }

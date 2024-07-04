@@ -26,7 +26,7 @@ export default function Header() {
           )}
         </div>
         <Link to="/" className={classes.logo}>
-          Ram Naresh Restaurant
+          Ram Naresh Cafe
         </Link>
         
       </div>
